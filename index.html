@@ -33,7 +33,7 @@
     <div class="w-full h-full flex flex-col justify-center items-center">
       <img 
         src="./assets/logo.png"
-        alt="Logo DevBurguer"
+        alt="Logo SoPizza"
         class="w-32 h-32 rounded-full shadow-lg hover:scale-110 duration-200"
       />
       <h1 class="text-4xl mt-4 mb-2 font-bold text-white">
@@ -43,8 +43,13 @@
       <span class="text-white font-medium">Jardim serranio, Caldas Novas - GO</span>
 
       <div class="bg-green-600 px-4 py-1 rounded-lg mt-5" id="date-span">
-        <span class="text-white font-medium">Seg á Dom - 18:00 as 23:00</span>
+        <span class="text-white font-medium">Seg á Dom - 18:00 as 02:00</span>
       </div>
+
+      <div id="delivery-message" class="hidden text-red-600">
+        A partir das 00h, a taxa de entrega custa 7 reais.
+    </div>
+    
 
     </div>
   </header>
@@ -53,13 +58,18 @@
   <h2 class="text-2xl md:text-3xl font-bold text-center mt-9 mb-6">
     Conheça nosso menu
   </h2>
+  
+  <h2 class="text-2xl md:text-1xl font-bold text-center mt-9 mb-6">
+    Pizza 1 Sabor
+  </h2>
 
   <!-- INICIO MENU -->
   <div id="menu">
     
     <main class="grid grid-cols-1 md:grid-cols-2 gap-7 md:gap-10 mx-auto max-w-7xl px-2 mb-16">
 
-      <!-- PRODUTO ITEM -->
+      <!-- PRODUTO ITEM PIZZA 1 SABOR  -->
+       
       <div class="flex gap-2">
         <img 
           src="./assets/pizza1.jpeg"
@@ -69,7 +79,7 @@
 
         <div>
           <p class="font-bold">Pizza calaresa1</p>
-          <p class="text-sm">Pão levinho de fermentação natural da Trigou, burger 160g, queijo prato e maionese da casa.</p>
+          <p class="text-sm">Uma deliciosa combinação de Linguiça Calabresa, rodelas de cebolas frescas, azeitonas pretas, mussarela, polpa de tomate, orégano e massa especial</p>
 
           <div class="flex items-center gap-2 justify-between mt-3">
             <p class="font-bold text-lg">R$ 18.90</p>
@@ -97,7 +107,7 @@
 
         <div>
           <p class="font-bold">Pizza calaresa2</p>
-          <p class="text-sm">Pão levinho de fermentação natural da Trigou, burger 160g, queijo prato e maionese da casa.</p>
+          <p class="text-sm">Uma deliciosa combinação de Linguiça Calabresa, rodelas de cebolas frescas, azeitonas pretas, mussarela, polpa de tomate, orégano e massa especial</p>
 
           <div class="flex items-center gap-2 justify-between mt-3">
             <p class="font-bold text-lg">R$ 18.90</p>
@@ -126,7 +136,7 @@
 
         <div>
           <p class="font-bold">Pizza calaresa3</p>
-          <p class="text-sm">Pão levinho de fermentação natural da Trigou, burger 160g, queijo prato e maionese da casa.</p>
+          <p class="text-sm">Uma deliciosa combinação de Linguiça Calabresa, rodelas de cebolas frescas, azeitonas pretas, mussarela, polpa de tomate, orégano e massa especial</p>
 
           <div class="flex items-center gap-2 justify-between mt-3">
             <p class="font-bold text-lg">R$ 18.90</p>
@@ -154,7 +164,7 @@
 
         <div>
           <p class="font-bold">Pizza calaresa4</p>
-          <p class="text-sm">Pão levinho de fermentação natural da Trigou, burger 160g, queijo prato e maionese da casa.</p>
+          <p class="text-sm">Uma deliciosa combinação de Linguiça Calabresa, rodelas de cebolas frescas, azeitonas pretas, mussarela, polpa de tomate, orégano e massa especial</p>
 
           <div class="flex items-center gap-2 justify-between mt-3">
             <p class="font-bold text-lg">R$ 18.90</p>
@@ -174,8 +184,123 @@
 
     </main>
 
+    <h2 class="text-2xl md:text-1xl font-bold text-center mt-9 mb-6">
+      Pizza 2 Sabores
+    </h2>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-7 md:gap-10 mx-auto max-w-7xl px-2 mb-16" id="pizzas2Sabores">
+      <!-- PRODUTO ITEM -->
+      <div class="flex gap-2">
+        <img 
+          src="./assets/pizza1.jpeg"
+          alt="Pizza metade calaresa"
+          class="w-28 h-28 rounded-md hover:scale-110 hover:-rotate-2 duration-300"
+        />
+
+        <div>
+          <p class="font-bold">Pizza metade calaresa </p>
+          <p class="text-sm">Uma deliciosa combinação de Linguiça Calabresa, rodelas de cebolas frescas, azeitonas pretas, mussarela, polpa de tomate, orégano e massa especial</p>
+
+          <div class="flex items-center gap-2 justify-between mt-3">
+            <p class="font-bold text-lg">R$ 18.90</p>
+            <button 
+              class="bg-gray-900 px-5 rounded add-to-cart-btn"
+              data-name="Pizza metade calaresa"
+              data-price="18.90"
+            >
+              <i class="fa fa-cart-plus text-lg text-white"></i>
+            </button>
+          </div>
+
+        </div>
+
+      </div>
+      <!-- FIM PRODUTO ITEM -->
+      <!-- PRODUTO ITEM -->
+      <div class="flex gap-2">
+        <img 
+          src="./assets/pizza1.jpeg"
+          alt="Pizza metade frango"
+          class="w-28 h-28 rounded-md hover:scale-110 hover:-rotate-2 duration-300"
+        />
+
+        <div>
+          <p class="font-bold">Pizza metade frango </p>
+          <p class="text-sm">Uma deliciosa combinação de Linguiça Calabresa, rodelas de cebolas frescas, azeitonas pretas, mussarela, polpa de tomate, orégano e massa especial</p>
+
+          <div class="flex items-center gap-2 justify-between mt-3">
+            <p class="font-bold text-lg">R$ 18.90</p>
+            <button 
+              class="bg-gray-900 px-5 rounded add-to-cart-btn"
+              data-name="Pizza metade frango"
+              data-price="18.90"
+            >
+              <i class="fa fa-cart-plus text-lg text-white"></i>
+            </button>
+          </div>
+
+        </div>
+
+      </div>
+      <!-- FIM PRODUTO ITEM -->
+      <!-- PRODUTO ITEM -->
+      <div class="flex gap-2">
+        <img 
+          src="./assets/pizza1.jpeg"
+          alt="Pizza calaresa4"
+          class="w-28 h-28 rounded-md hover:scale-110 hover:-rotate-2 duration-300"
+        />
+
+        <div>
+          <p class="font-bold">Pizza calaresa dois sabores</p>
+          <p class="text-sm">Uma deliciosa combinação de Linguiça Calabresa, rodelas de cebolas frescas, azeitonas pretas, mussarela, polpa de tomate, orégano e massa especial</p>
+
+          <div class="flex items-center gap-2 justify-between mt-3">
+            <p class="font-bold text-lg">R$ 18.90</p>
+            <button 
+              class="bg-gray-900 px-5 rounded add-to-cart-btn"
+              data-name="Pizza calaresa4"
+              data-price="18.90"
+            >
+              <i class="fa fa-cart-plus text-lg text-white"></i>
+            </button>
+          </div>
+
+        </div>
+
+      </div>
+      <!-- FIM PRODUTO ITEM -->
+      <!-- PRODUTO ITEM -->
+      <div class="flex gap-2">
+        <img 
+          src="./assets/pizza1.jpeg"
+          alt="Pizza calaresa4"
+          class="w-28 h-28 rounded-md hover:scale-110 hover:-rotate-2 duration-300"
+        />
+
+        <div>
+          <p class="font-bold">Pizza calaresa dois sabores</p>
+          <p class="text-sm">Uma deliciosa combinação de Linguiça Calabresa, rodelas de cebolas frescas, azeitonas pretas, mussarela, polpa de tomate, orégano e massa especial</p>
+
+          <div class="flex items-center gap-2 justify-between mt-3">
+            <p class="font-bold text-lg">R$ 18.90</p>
+            <button 
+              class="bg-gray-900 px-5 rounded add-to-cart-btn"
+              data-name="Pizza calaresa4"
+              data-price="18.90"
+            >
+              <i class="fa fa-cart-plus text-lg text-white"></i>
+            </button>
+          </div>
+
+        </div>
+
+      </div>
+      <!-- FIM PRODUTO ITEM -->
+    </div>
+
     <div class="mx-auto max-w-7xl px-2 my-2">
-      <h2 class="font-bold text-3xl">
+      <h2 class="text-2xl md:text-1xl font-bold text-center mt-9 mb-6">
         Bebidas
       </h2>
     </div>
