@@ -304,10 +304,37 @@ function checkRestaurantOpen() {
     const diaDaSemana = data.getDay(); // 0 = Domingo, 1 = Segunda, ..., 6 = Sábado
 
     // O restaurante está aberto todos os dias
-    const isOpenDay = true; // Agora o restaurante está aberto todos os dias
+    /* const isOpenDay = true; */
+
+    // Verifica se é terça-feira (dia 2) - dia em que o restaurante está fechado
+    const isClosedOnTuesday = diaDaSemana === 2;
 
     // Horário de funcionamento: das 18h às 23h59 e das 00h às 2h
-    const isOpenHour = (hora >= 16 && hora < 24) || (hora >= 0 && hora < 3);
+    const isOpenHour = (hora >= 17 && hora < 24) || (hora >= 0 && hora < 3);
 
-    return isOpenDay && isOpenHour; // true = restaurante está aberto
+    // Verifica se o restaurante está aberto
+    /* const isOpen = isOpenDay && isOpenHour; */
+
+    // O restaurante está aberto se não for terça-feira e estiver dentro do horário
+    const isOpen = !isClosedOnTuesday && isOpenHour;
+
+    // Seleciona o span pelo id "date-span"
+    const spanItem = document.getElementById("date-span");
+
+    if (isOpen) {
+        // Se o restaurante estiver aberto, adiciona a classe verde e remove a vermelha
+        spanItem.classList.remove("bg-red-500");
+        spanItem.classList.add("bg-green-600");
+        spanItem.textContent = "Seg á Dom - 18:00 as 02:00 Delivery Aberto";
+    } else {
+        // Se o restaurante estiver fechado, adiciona a classe vermelha e remove a verde
+        spanItem.classList.remove("bg-green-600");
+        spanItem.classList.add("bg-red-500");
+        spanItem.textContent = "Seg á Dom - 18:00 as 02:00 Delivery Fechado";
+    }
+
+    return isOpen; // Retorna o estado do restaurante (true ou false)
 }
+
+// Chama a função para verificar o status do restaurante e atualizar o span
+checkRestaurantOpen();
