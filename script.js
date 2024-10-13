@@ -217,6 +217,8 @@ checkoutBtn.addEventListener("click", function () {
 
     cart = [];
     updateCartModal();
+    // Recarrega a página após finalizar o pedido
+    location.reload();
 });
 
 // Finalizar pedido - função está funcionando perfeitamente, so realizando um teste
