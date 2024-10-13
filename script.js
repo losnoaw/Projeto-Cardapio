@@ -320,7 +320,7 @@ function checkRestaurantOpen() {
     const isClosedOnTuesday = diaDaSemana === 2;
 
     // Horário de funcionamento: das 18h às 23h59 e das 00h às 2h
-    const isOpenHour = (hora >= 17 && hora < 24) || (hora >= 0 && hora < 3);
+    const isOpenHour = (hora >= 18 && hora < 24) || (hora >= 0 && hora < 2);
 
     // Verifica se o restaurante está aberto
     /* const isOpen = isOpenDay && isOpenHour; */
