@@ -79,6 +79,12 @@ function updateCartModal() {
     cartItemsContainer.innerHTML = "";
     let total = 0;
 
+    // Obtenha a hora atual
+    const currentHour = new Date().getHours();
+
+    // Verifique se a taxa de entrega deve ser aplicada (entre 00h e 03h)
+    const isDeliveryFeeApplicable = currentHour >= 0 && currentHour < 3;
+
     cart.forEach((item) => {
         const cartItemElement = document.createElement("div");
         cartItemElement.classList.add(
@@ -108,6 +114,18 @@ function updateCartModal() {
         cartItemsContainer.appendChild(cartItemElement);
     });
 
+    // Se a taxa de entrega for aplicável (entre 00h e 3h), adicione R$ 7,00 ao total e mostre a mensagem
+    if (isDeliveryFeeApplicable) {
+        total += 7; // Adiciona a taxa de entrega de 7 reais
+
+        // Adicione a mensagem da taxa de entrega
+        const deliveryMessageElement = document.createElement("div");
+        deliveryMessageElement.className = "mt-4 text-red-500"; // Classe para estilizar a mensagem
+        deliveryMessageElement.innerHTML =
+            "Taxa de entrega: R$ 7,00 após as 00h.";
+        cartItemsContainer.appendChild(deliveryMessageElement);
+    }
+
     cartTotal.textContent = total.toLocaleString("pt-BR", {
         style: "currency",
         currency: "BRL",
@@ -115,8 +133,6 @@ function updateCartModal() {
 
     cartCounter.innerHTML = cart.length;
 }
-
-//Função para apos as 00h
 
 // Função para remover o item do carrinho
 cartItemsContainer.addEventListener("click", function (event) {
@@ -189,11 +205,17 @@ checkoutBtn.addEventListener("click", function () {
     // Calcular o total diretamente da função updateCartModal ou passar o valor total calculado
     let total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
 
-    // Verifica se a hora está entre 00h e 11h59 e aplica a taxa de entrega
+    // Obtém a hora atual
     const currentHour = new Date().getHours();
-    if (currentHour >= 0 && currentHour < 12) {
+
+    // Variável para armazenar a mensagem de taxa de entrega, caso seja aplicável
+    let deliveryFeeMessage = "";
+
+    // Verifica se a hora está entre 00h e 03h e aplica a taxa de entrega
+    if (currentHour >= 0 && currentHour < 3) {
         total += 7; // Adiciona a taxa de entrega de 7 reais
-        document.getElementById("delivery-message").classList.remove("hidden"); // Mostra a mensagem
+        deliveryFeeMessage = "Taxa de entrega de R$ 7 após as 00h.\n\n"; // Mensagem da taxa
+        document.getElementById("delivery-message").classList.remove("hidden"); // Mostra a mensagem na tela
     } else {
         document.getElementById("delivery-message").classList.add("hidden"); // Esconde a mensagem
     }
@@ -205,9 +227,11 @@ checkoutBtn.addEventListener("click", function () {
         })
         .join("");
 
+    // Monta a mensagem com os itens do carrinho e adiciona a mensagem de taxa de entrega, se aplicável
     const message = encodeURIComponent(
-        cartItems + `Total: R$ ${total.toFixed(2)}\n\n`
+        cartItems + deliveryFeeMessage + `Total: R$ ${total.toFixed(2)}\n\n`
     );
+
     const phone = "91986248887";
 
     window.open(
@@ -283,7 +307,7 @@ function checkRestaurantOpen() {
     const isOpenDay = true; // Agora o restaurante está aberto todos os dias
 
     // Horário de funcionamento: das 18h às 23h59 e das 00h às 2h
-    const isOpenHour = (hora >= 18 && hora < 24) || (hora >= 0 && hora < 2);
+    const isOpenHour = (hora >= 16 && hora < 24) || (hora >= 0 && hora < 3);
 
     return isOpenDay && isOpenHour; // true = restaurante está aberto
 }
