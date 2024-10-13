@@ -340,7 +340,7 @@ function checkRestaurantOpen() {
         // Se o restaurante estiver fechado, adiciona a classe vermelha e remove a verde
         spanItem.classList.remove("bg-green-600");
         spanItem.classList.add("bg-red-500");
-        spanItem.textContent = " Delivery Fechado terça-feira";
+        spanItem.textContent = "Seg á Dom - 18:00 as 03:00 Delivery Fechado";
     }
 
     return isOpen; // Retorna o estado do restaurante (true ou false)
