@@ -44,7 +44,17 @@ menu.addEventListener("click", function (event) {
                 saboresSelecionados.push({ name, price });
                 addToCart(name, price);
             } else {
-                alert("Você só pode selecionar no máximo dois sabores.");
+                Toastify({
+                    text: "Ops, Você so pode escolher dois sabores!",
+                    duration: 3000,
+                    close: true,
+                    gravity: "top",
+                    position: "center",
+                    stopOnFocus: true,
+                    style: {
+                        background: "#f08a16",
+                    },
+                }).showToast();
             }
         } else {
             // Adiciona normalmente para outros itens fora de pizzas2Sabores
