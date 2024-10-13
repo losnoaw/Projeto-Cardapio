@@ -320,7 +320,7 @@ function checkRestaurantOpen() {
     const isClosedOnTuesday = diaDaSemana === 2;
 
     // Horário de funcionamento: das 18h às 23h59 e das 00h às 2h
-    const isOpenHour = (hora >= 18 && hora < 24) || (hora >= 0 && hora < 2);
+    const isOpenHour = (hora >= 18 && hora < 24) || (hora >= 0 && hora < 3);
 
     // Verifica se o restaurante está aberto
     /* const isOpen = isOpenDay && isOpenHour; */
@@ -335,12 +335,12 @@ function checkRestaurantOpen() {
         // Se o restaurante estiver aberto, adiciona a classe verde e remove a vermelha
         spanItem.classList.remove("bg-red-500");
         spanItem.classList.add("bg-green-600");
-        spanItem.textContent = "Seg á Dom - 18:00 as 02:00 Delivery Aberto";
+        spanItem.textContent = "Seg á Dom - 18:00 as 03:00 Delivery Aberto";
     } else {
         // Se o restaurante estiver fechado, adiciona a classe vermelha e remove a verde
         spanItem.classList.remove("bg-green-600");
         spanItem.classList.add("bg-red-500");
-        spanItem.textContent = "Seg á Dom - 18:00 as 02:00 Delivery Fechado";
+        spanItem.textContent = " Delivery Fechado terça-feira";
     }
 
     return isOpen; // Retorna o estado do restaurante (true ou false)
